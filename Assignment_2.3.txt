@@ -1,0 +1,38 @@
+1. Each component of Hadoop 1.x
+
+    * Hadoop System is a Master-Slave architecture
+    *  Hadoop 1.x file system has 64 MB block size
+    * The default replication factor in Hadoop is 3
+    * There are total 5 components in Hadoop 1.x architecture
+      - Name Node (NN)
+      - Data Node (DN)
+      - Secondary Name Node (SNN)
+      - Job Tracker (JT)
+      - Task Tracker (TT)
+    * Name Node, Data Node and Secondary Name Node are called as Storage components in Hadoop
+    * Job Tracker and Task Tracker are called as Processing components in Hadoop
+    * Name node is a Master Node in Hadoop
+    * Data Node is the slave nodes in Hadoop.
+    * Master Node's MR component is called as Job Tracker
+    * Slave Node's MR component is called as Task Tracker.
+    * Namenode:
+       - Name node decide how to store the phisical location of ech and every file in blocks in the cluster
+       - It also manages the metadata of the files stored in data nodes
+       - It always stores the metadata in FSImage and EditLogs file at regular intervals
+       - This process is called as checkpoint mechanisum
+    * Datanode:
+       - Data node will store the file data in blocks, as per the instructions from Name node
+       - Data node will send the RPC signal at regular interval, to notify the Name node that it is alive and working
+       - Data node is also called as Heart beat mechanism
+    * Secondary name node:
+       - Secondary Name node acts as a backup for Name node
+       - It stores the meta data information from Name node at regular interval as per checkpoint mechanism
+    * Job Tracker:
+       - Job Tracker most of the times resides in the same node as of Name Node
+       - It's job is to assign the task to the Data nodes/Task trackers
+       - It also decides the job scheduling for the data nodes/Task trackers
+       - In case of Job failure, Job tracker decides about the rescheduling of the task on some other nodes
+       - Job Tracker is also called as Single Point of Failure ( SPOF)
+    * Task Tracker:
+       - Its job is to execute the task assigned by job tracker
+  
